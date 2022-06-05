@@ -410,10 +410,13 @@ export default {
       })
           .then(data => {
             let arr = data.data
+            console.log(arr)
             arr.sort((a, b) => Number(b.prediction) - Number(a.prediction))
             arr = arr.filter(el => el.prediction > 0)
 
-            if (arr.length <= 0) {
+            console.log(arr)
+
+            if (arr.length < 3) {
               this.warn = 'Ничего не найдено'
               setTimeout(() => {
                 this.warn = ''
@@ -430,7 +433,7 @@ export default {
                   continue
                 }
                 cods[el].number = arr[el].code
-                cods[el].p = Math.round((Number(arr[el].prediction) / sum) * 100)
+                cods[el].p = Math.floor((Number(arr[el].prediction) / sum) * 100)
               }
               this.show.loader = false
             }

@@ -173,8 +173,6 @@ background-color: var(--logo-bg);
 body {
   font-family: "PT Serif", sans-serif;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
   background-color: var(--app-container);
   
 }
@@ -200,7 +198,6 @@ button, a {
 }
 .content {
   display: flex;
-  height: 100%;
   overflow: hidden;
   padding: 16px 24px 0 0;
 }
@@ -389,6 +386,7 @@ button, a {
 }
 
 .codes-section {
+  min-height: 97vh;
   flex: 2;
   background-color: var(--codess-section);
   backdrop-filter: blur(10px);

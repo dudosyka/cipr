@@ -98,8 +98,8 @@ def Learn():
     cursor.execute('SELECT * FROM `categories`')
     categories = cursor.fetchall()
     for category in categories:
-        if int(category[0]) <= 2916:
-            continue
+        # if not (int(category[0]) == 3004):
+        #     continue
         now = datetime.datetime.now()
         print("Start work on category: ", category[0], " ", now.strftime("%Y-%m-%d %H:%M:%S"))
         categoryCount = getCategoryCount(category[0])
@@ -107,7 +107,7 @@ def Learn():
         if categoryCount < 2500:
             maxLen = categoryCount // 2
         print('Category max:', maxLen)
-        x, y, val_x, val_y = GenerateData("../dataset_20211126.csv", category[0], maxLen)
+        x, y, val_x, val_y = GenerateData("./dataset_20211126.csv", category[0], maxLen)
         print('Category data generated.')
         # print(x, y)
         #
